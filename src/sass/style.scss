@@ -8,6 +8,7 @@ $bright: #ffc857;
 $bright2: #db3a34;
 $main: #084c61;
 $main2: #177e89;
+$grid:#ccc;
 body {
     align-items: center;
     background-color: $dark;
@@ -21,4 +22,21 @@ body {
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+main.game{
+    display: flex;
+    gap: 10px;
+    .settings{
+        display: flex;
+        flex-direction: column;
+    }
+    .grid{
+        display: grid;
+        height: 500px;
+        width: 500px;
+        .pixel{
+            border:solid 1px $grid;
+        }
+    }
 }

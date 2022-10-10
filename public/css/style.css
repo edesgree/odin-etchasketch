@@ -14,3 +14,20 @@ body {
 *:after {
   box-sizing: border-box;
 }
+
+main.game {
+  display: flex;
+  gap: 10px;
+}
+main.game .settings {
+  display: flex;
+  flex-direction: column;
+}
+main.game .grid {
+  display: grid;
+  height: 500px;
+  width: 500px;
+}
+main.game .grid .pixel {
+  border: solid 1px #ccc;
+}
