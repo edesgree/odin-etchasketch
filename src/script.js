@@ -23,21 +23,8 @@ const game = () => {
     }
 
     const draw = () => {
-        // get all pixels into an array
-        const pixels = Array.from(document.querySelectorAll('#grid .pixel'));
-
-        var mousePosition = false;
-        var interval_;
-        /*
-function startDraw(e){
-    e.preventDefault();
-    // listen for each pixel on click
-    pixels.forEach(pixel => pixel.addEventListener('mouseover ', () => {
-        console.log('click');
-        console.log(this);
-        pixel.style.backgroundColor = "blue";
-    }));
-} */
+        
+        // change background color of target via event
         const changePixelColor = (e) => {
             e.preventDefault();
             if (e.target.classList.contains('pixel')) {
@@ -46,43 +33,21 @@ function startDraw(e){
             }
             console.log('over');
         }
+        // execute on click
         gridContainer.addEventListener('mousedown', function (e) {
             e.preventDefault();
-            console.log('click');
+            // call a first time to change colour on first mousedown
             changePixelColor(e);
+            // then continue calling the colorchange on mouse over
             gridContainer.addEventListener('mouseover', changePixelColor);
 
         });
-
+        // remove event on mouse up
         gridContainer.onmouseup = function (e) {
-            e.preventDefault();
-            console.log('mouse up');
             gridContainer.removeEventListener('mouseover', changePixelColor);
-
-            //elem.removeEventListener('mouseout');
         }
 
-        /*
-                // listen for each pixel on click
-                pixels.forEach(pixel => pixel.addEventListener('mouseover ', () => {
-                    console.log('click');
-                    console.log(this);
-                    pixel.style.backgroundColor = "blue";
-                }));
-        
-        
-                gridContainer.addEventListener('click', function (e) {
-                    gridContainer.addEventListener('mouseover', function (e) {
-                        if (e.target.classList.contains('pixel')) {
-                            e.target.style.backgroundColor = 'red';
-        
-                        }
-                        console.log('over');
-        
-                    }, false);
-                }, false);
-        
-        */
+      
     }
     createGrid(gridElements);
     draw();
