@@ -19,10 +19,14 @@
     
     <main class="game">
        <div class="settings">
-            <button>color mode</button>
-            <button>rainbow mode</button>
-            <button>eraser</button>
-            <button>clear</button>
+            <div>
+                <input type="color" id="colorMode" name="colorMode"
+                        value="#ff9900">
+                <label for="colorMode">color</label>
+            </div>
+            <button id="rainbowMode">rainbow mode</button>
+            <button id="eraserMode">eraser</button>
+            <button id="clearMode">clear</button>
             <select name="grid_size" id="grid_size">
                 <option value="4">4</option>
                 <option value="10">10</option>
@@ -30,7 +34,7 @@
             </select>
        </div>
        <div class="grid" id="grid">
-        
+
        </div>
     </main>
     <footer class="footer">
