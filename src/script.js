@@ -5,7 +5,7 @@ const game = () => {
     // init variables/
     const gridElements = 10;
     const modes = ['colorMode', 'rainbowMode', 'eraserMode'];
-    let currentColor = 'green';
+    let currentColor = '#333';
     let currentMode = modes[0];
     // draw the grid
     // UI elememts
