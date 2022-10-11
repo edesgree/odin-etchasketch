@@ -24,14 +24,23 @@ body {
 *:after {
     box-sizing: border-box;
 }
-
+header {
+    background: #171717;
+    border-radius: 20px 20px 0 0;
+    margin-top: 20px;
+    padding: 7px 10% 0;
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
 main.game {
     background: $bright2;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
     display: flex;
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     padding: 20px;
     .settings {
         display: flex;
@@ -76,12 +85,12 @@ main.game {
             border-radius: 30px;
             height: 40px;
             width: 40px;
-            &:hover{
-                background-color: lighten($bright,20%);
+            &:hover {
+                background-color: lighten($bright, 20%);
                 cursor: pointer;
             }
             &.active {
-                outline:solid 3px white;
+                outline: solid 3px white;
             }
             &#rainbowMode {
                 background-image: url("#{$assetsPath}rainbow.svg");
@@ -98,11 +107,11 @@ main.game {
                 width: 100%;
             }
         }
-        .other-choices{
+        .other-choices {
             margin-bottom: 20px;
         }
-        .grid-choice{
-            #grid_size{
+        .grid-choice {
+            #grid_size {
                 display: block;
             }
         }
@@ -134,7 +143,7 @@ main.game {
         top: 100%;
         visibility: hidden;
         white-space: nowrap;
-        
+
         z-index: 1;
     }
     /* Show the tooltip text when you mouse over the tooltip container */
@@ -143,46 +152,39 @@ main.game {
     }
 }
 
-
-@media only screen and (max-width:700px) {
- main.game{
-    flex-direction: column;
-    .settings{
-        flex-direction: row;
-        .color-choice{
-            width: 90px;
+@media only screen and (max-width: 700px) {
+    main.game {
+        flex-direction: column;
+        .settings {
+            flex-direction: row;
+            .color-choice {
+                width: 90px;
+            }
         }
     }
- }
 }
-@media only screen and (max-width:500px) {
-    main.game .grid{
+@media only screen and (max-width: 500px) {
+    main.game .grid {
         height: 400px;
         width: 400px;
     }
 }
-@media only screen and (max-width:400px) {
+@media only screen and (max-width: 400px) {
     main.game {
-        .settings{
+        .settings {
             flex-wrap: wrap;
         }
-        .grid{
+        .grid {
             height: 320px;
             width: 320px;
         }
     }
 }
 @media only screen and (min-width: 960px) {
-  
-    
 }
 
 @media only screen and (min-width: 1280px) {
-   
-    
 }
 
 @media only screen and (min-width: 1920px) {
-   
-    
 }

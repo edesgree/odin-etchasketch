@@ -102,7 +102,7 @@ const game = () => {
         // add active class to this button and remove active from others
         navBtns.forEach(navBtn => navBtn.classList.remove('active'));
         e.target.classList.add('active');
-        
+
     });
 
     //clear mode
@@ -133,13 +133,14 @@ const game = () => {
 
     // getting a random RGB value
     function getRandomRGB() {
-        let arrayRGB = [getRandomIntInclusive(0, 255), getRandomIntInclusive(0, 255), getRandomIntInclusive(0, 255)];
+        // we divide 255/.5 to get brighter colours
+        let arrayRGB = [getRandomIntInclusive(0, 255 / .5), getRandomIntInclusive(0, 255 / .5), getRandomIntInclusive(0, 255 / .5)];
         // return RGB values (255,255,255)
         return arrayRGB.join();
     }
 
-    function activeNavBtn(e){
-        
+    function activeNavBtn(e) {
+
     }
     // call the draw function
     draw();
