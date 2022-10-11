@@ -25,11 +25,37 @@ body {
 }
 
 main.game{
+    background: darkred;
+    border-radius: 20px;
+    box-shadow: rgba(0,0,0,0.2) 0px 0px 16px;
     display: flex;
     gap: 10px;
+    padding: 20px;
+
     .settings{
         display: flex;
         flex-direction: column;
+        gap: 10px;
+
+        #colorMode{
+            background-color: transparent;
+            border:none;
+            border-radius: 50px;
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+            &::-webkit-color-swatch
+             {
+                border: solid 2px white;
+                border-radius:50px;
+            }
+            
+            &::-moz-color-swatch
+             {
+                border:none;
+                border-radius:15px;
+            }
+        }
     }
     .grid{
         display: grid;
