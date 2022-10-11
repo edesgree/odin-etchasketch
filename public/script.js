@@ -17,7 +17,7 @@ const game = () => {
     const btnEraser = document.getElementById('eraserMode');
     const btnRainbow = document.getElementById('rainbowMode');
     const btnClear = document.getElementById('clear');
-console.log(inputGridSizeValue);
+
     
     
 
@@ -74,28 +74,34 @@ console.log(inputGridSizeValue);
     function updateColor(color) {
         currentColor = color;
     }
-
+    // create grid
     createGrid(gridElements);
-    const pixels = Array.from(document.querySelectorAll('#grid .pixel'));
+    
+    
     // update color choice via color picker input
     inputColor.addEventListener('change', (e) => {
         updateColor(e.target.value);
         currentMode = modes[0];
         console.log(currentMode);
     });
-    //rainbow mode
+
+    //eraser mode
     btnEraser.addEventListener('click', () => {
         currentMode = modes[2];
         console.log(currentMode);
     });
-    //eraser mode
+
+    //rainbow mode
     btnRainbow.addEventListener('click', () => {
         currentMode = modes[1];
         console.log(currentMode);
     });
+
     //clear mode
     btnClear.addEventListener('click', () => {
+        let pixels = Array.from(document.querySelectorAll('#grid .pixel'));
         pixels.forEach(pixel => pixel.style.backgroundColor = "");
+        console.log(pixels);
     });
 
     //grid size input
