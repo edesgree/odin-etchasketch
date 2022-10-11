@@ -29,5 +29,6 @@ main.game .grid {
   width: 500px;
 }
 main.game .grid .pixel {
-  border: solid 1px #ccc;
+  background-color: #ccc;
+  border: solid 1px #b3b3b3;
 }

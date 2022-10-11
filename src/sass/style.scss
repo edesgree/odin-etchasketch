@@ -36,7 +36,8 @@ main.game{
         height: 500px;
         width: 500px;
         .pixel{
-            border:solid 1px $grid;
+            background-color: $grid;
+            border:solid 1px darken($grid,10%);
         }
     }
 }

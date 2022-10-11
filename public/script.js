@@ -3,7 +3,7 @@ const game = () => {
 
     console.log("hello");
     // init variables/
-    const gridElements = 10;
+    const gridElements = 16;
     const modes = ['colorMode', 'rainbowMode', 'eraserMode'];
     let currentColor = '#333';
     let currentMode = modes[0];
@@ -12,16 +12,21 @@ const game = () => {
     const gridContainer = document.getElementById('grid');
     const pixelHTML = document.createElement('div');
     const inputColor = document.getElementById('colorMode');
+    const inputGridSize = document.getElementById('grid_size');
+    const inputGridSizeValue = document.querySelector('.grid_size_value');
     const btnEraser = document.getElementById('eraserMode');
     const btnRainbow = document.getElementById('rainbowMode');
     const btnClear = document.getElementById('clear');
-
+console.log(inputGridSizeValue);
     
-    // add grid css to the grid element
-    gridContainer.style.gridTemplateColumns = "repeat(" + gridElements + ",1fr)";
-    pixelHTML.classList.add('pixel');
+    
 
     const createGrid = (gridSize) => {
+        //reset grid
+        gridContainer.innerHTML="";
+        // add grid css to the grid element
+        gridContainer.style.gridTemplateColumns = "repeat(" + gridSize + ",1fr)";
+        pixelHTML.classList.add('pixel');
         // create as many div elements as needed for the grid (nb*nb)
         for (i = 0; i < gridSize ** 2; i++) {
             // create a clone each time
@@ -90,10 +95,14 @@ const game = () => {
     });
     //clear mode
     btnClear.addEventListener('click', () => {
-
-        console.log('clear');
-        console.log(pixels);
         pixels.forEach(pixel => pixel.style.backgroundColor = "");
+    });
+
+    //grid size input
+    inputGridSize.addEventListener('input', (e) => {
+        
+        createGrid(e.target.value);
+        inputGridSizeValue.innerHTML = e.target.value;
     });
     // getting random number between 2 values (useful for random RGB color)
     function getRandomIntInclusive(min, max) {
