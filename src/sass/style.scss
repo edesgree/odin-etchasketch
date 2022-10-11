@@ -31,8 +31,8 @@ main.game {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
     display: flex;
     gap: 10px;
+    margin-bottom: 5px;
     padding: 20px;
-
     .settings {
         display: flex;
         flex-direction: column;
@@ -45,31 +45,43 @@ main.game {
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            height: 50px;
+            height: 40px;
             margin: 0;
             padding: 0;
-            width: 46px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            width: 36px;
             &::-webkit-color-swatch {
                 border: solid 2px white;
-                border-radius: 50px;
+                border-radius: 40px;
                 box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+                margin: 0;
+                padding: 0;
             }
 
             &::-moz-color-swatch {
                 border: solid 2px white;
-                border-radius: 50px;
+                border-radius: 40px;
                 box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+                margin: 0;
+                padding: 0;
             }
         }
         .nav-btn {
-            background-color: transparent;
+            background-color: $bright;
             background-repeat: no-repeat;
             background-size: contain;
             border: none;
+            border-radius: 30px;
             height: 40px;
             width: 40px;
+            &:hover{
+                background-color: lighten($bright,20%);
+                cursor: pointer;
+            }
             &.active {
-                border: solid 2px $bright2;
+                outline:solid 3px white;
             }
             &#rainbowMode {
                 background-image: url("#{$assetsPath}rainbow.svg");
@@ -83,6 +95,7 @@ main.game {
             &#colorModeLabel {
                 background-image: url("#{$assetsPath}pen.svg");
                 display: inline-block;
+                width: 100%;
             }
         }
         .other-choices{

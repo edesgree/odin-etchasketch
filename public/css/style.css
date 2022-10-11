@@ -21,6 +21,7 @@ main.game {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
   display: flex;
   gap: 10px;
+  margin-bottom: 5px;
   padding: 20px;
 }
 main.game .settings {
@@ -36,31 +37,43 @@ main.game .settings #colorMode {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  height: 50px;
+  height: 40px;
   margin: 0;
   padding: 0;
-  width: 46px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 36px;
 }
 main.game .settings #colorMode::-webkit-color-swatch {
   border: solid 2px white;
-  border-radius: 50px;
+  border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+  margin: 0;
+  padding: 0;
 }
 main.game .settings #colorMode::-moz-color-swatch {
   border: solid 2px white;
-  border-radius: 50px;
+  border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+  margin: 0;
+  padding: 0;
 }
 main.game .settings .nav-btn {
-  background-color: transparent;
+  background-color: #ffc857;
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
+  border-radius: 30px;
   height: 40px;
   width: 40px;
 }
+main.game .settings .nav-btn:hover {
+  background-color: #ffe9bd;
+  cursor: pointer;
+}
 main.game .settings .nav-btn.active {
-  border: solid 2px #ca2f2f;
+  outline: solid 3px white;
 }
 main.game .settings .nav-btn#rainbowMode {
   background-image: url("../images/rainbow.svg");
@@ -74,6 +87,7 @@ main.game .settings .nav-btn#clear {
 main.game .settings .nav-btn#colorModeLabel {
   background-image: url("../images/pen.svg");
   display: inline-block;
+  width: 100%;
 }
 main.game .settings .other-choices {
   margin-bottom: 20px;

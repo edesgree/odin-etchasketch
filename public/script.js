@@ -16,7 +16,7 @@ const game = () => {
     const btnEraser = document.getElementById('eraserMode');
     const btnRainbow = document.getElementById('rainbowMode');
     const btnClear = document.getElementById('clear');
-
+    const navBtns = Array.from(document.querySelectorAll('.settings .nav-btn'));
     // display default grid size value in html
     inputGridSizeValue.innerHTML = gridElements;
     inputGridSize.value = gridElements;
@@ -82,24 +82,38 @@ const game = () => {
     inputColor.addEventListener('change', (e) => {
         updateColor(e.target.value);
         currentMode = modes[0];
+        // add active class to this button and remove active from others
+        navBtns.forEach(navBtn => navBtn.classList.remove('active'));
+        document.getElementById('colorModeLabel').classList.add('active');
     });
 
     //eraser mode
-    btnEraser.addEventListener('click', () => {
+    btnEraser.addEventListener('click', (e) => {
         currentMode = modes[2];
+        // add active class to this button and remove active from others
+        navBtns.forEach(navBtn => navBtn.classList.remove('active'));
+        e.target.classList.add('active');
     });
 
     //rainbow mode
-    btnRainbow.addEventListener('click', () => {
+    btnRainbow.addEventListener('click', (e) => {
         currentMode = modes[1];
+        console.log(e.target);
+        // add active class to this button and remove active from others
+        navBtns.forEach(navBtn => navBtn.classList.remove('active'));
+        e.target.classList.add('active');
+        
     });
 
     //clear mode
-    btnClear.addEventListener('click', () => {
+    btnClear.addEventListener('click', (e) => {
         // get all pixels in an array
         let pixels = Array.from(document.querySelectorAll('#grid .pixel'));
         // assign empty to each pixel bg color
         pixels.forEach(pixel => pixel.style.backgroundColor = "");
+        // add active class to this button and remove active from others
+        navBtns.forEach(navBtn => navBtn.classList.remove('active'));
+        e.target.classList.add('active');
     });
 
     //change of grid size when user use the range input
@@ -122,6 +136,10 @@ const game = () => {
         let arrayRGB = [getRandomIntInclusive(0, 255), getRandomIntInclusive(0, 255), getRandomIntInclusive(0, 255)];
         // return RGB values (255,255,255)
         return arrayRGB.join();
+    }
+
+    function activeNavBtn(e){
+        
     }
     // call the draw function
     draw();
