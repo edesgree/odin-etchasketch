@@ -4,12 +4,16 @@ const game = () => {
     console.log("hello");
     // init variables/
     const gridElements = 10;
+    const modes = ['colorMode','rainbowMode','eraserMode'];
     let currentColor = 'green';
+    let currentMode = modes[0];
     // draw the grid
     // UI elememts
     const gridContainer = document.getElementById('grid');
     const pixelHTML = document.createElement('div');
     const inputColor = document.getElementById('colorMode');
+    const btnEraser = document.getElementById('eraserMode');
+    const btnRainbow = document.getElementById('rainbowMode');
     // add grid css to the grid element
     gridContainer.style.gridTemplateColumns = "repeat(" + gridElements + ",1fr)";
     pixelHTML.classList.add('pixel');
@@ -28,9 +32,9 @@ const game = () => {
         const changePixelColor = (e) => {
             e.preventDefault();
             if (e.target.classList.contains('pixel')) {
-                if(currentMode = 'rainbowMode'){
+                if(currentMode === 'rainbowMode'){
                     e.target.style.backgroundColor = 'rgb('+getRandomRGB()+')';
-                }else if(currentMode='eraserMode'){
+                }else if(currentMode==='eraserMode'){
                     e.target.style.backgroundColor = '';
                 }else{
                     e.target.style.backgroundColor = currentColor;
@@ -51,7 +55,7 @@ const game = () => {
             changePixelColor(e);
             // then continue calling the colorchange on mouse over
             gridContainer.addEventListener('mouseover', changePixelColor);
-
+console.log(currentMode);
         });
         // remove event on mouse up
         gridContainer.onmouseup = function (e) {
@@ -70,6 +74,20 @@ const game = () => {
     // update color choice via color picker input
     inputColor.addEventListener('change', function (e) {
         updateColor(e.target.value);
+        currentMode=modes[0];
+        console.log(currentMode);
+    });
+    //rainbow mode
+    btnEraser.addEventListener('click', function (e) {
+        updateColor('');
+        currentMode=modes[2];
+        console.log(currentMode);
+    });    
+    //eraser mode
+    btnRainbow.addEventListener('click', function (e) {
+        updateColor('purple');
+        currentMode=modes[1];
+        console.log(currentMode);
     });
     // getting random number between 2 values (useful for random RGB color)
     function getRandomIntInclusive(min, max) {
