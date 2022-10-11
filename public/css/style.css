@@ -128,3 +128,30 @@ main.game .grid .pixel {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+@media only screen and (max-width: 700px) {
+  main.game {
+    flex-direction: column;
+  }
+  main.game .settings {
+    flex-direction: row;
+  }
+  main.game .settings .color-choice {
+    width: 90px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  main.game .grid {
+    height: 400px;
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  main.game .settings {
+    flex-wrap: wrap;
+  }
+  main.game .grid {
+    height: 320px;
+    width: 320px;
+  }
+}

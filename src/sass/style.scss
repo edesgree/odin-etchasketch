@@ -142,3 +142,47 @@ main.game {
         visibility: visible;
     }
 }
+
+
+@media only screen and (max-width:700px) {
+ main.game{
+    flex-direction: column;
+    .settings{
+        flex-direction: row;
+        .color-choice{
+            width: 90px;
+        }
+    }
+ }
+}
+@media only screen and (max-width:500px) {
+    main.game .grid{
+        height: 400px;
+        width: 400px;
+    }
+}
+@media only screen and (max-width:400px) {
+    main.game {
+        .settings{
+            flex-wrap: wrap;
+        }
+        .grid{
+            height: 320px;
+            width: 320px;
+        }
+    }
+}
+@media only screen and (min-width: 960px) {
+  
+    
+}
+
+@media only screen and (min-width: 1280px) {
+   
+    
+}
+
+@media only screen and (min-width: 1920px) {
+   
+    
+}
