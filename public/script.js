@@ -4,7 +4,7 @@ const game = () => {
     console.log("hello");
     // init variables/
     const gridElements = 10;
-    const modes = ['colorMode','rainbowMode','eraserMode'];
+    const modes = ['colorMode', 'rainbowMode', 'eraserMode'];
     let currentColor = 'green';
     let currentMode = modes[0];
     // draw the grid
@@ -14,6 +14,9 @@ const game = () => {
     const inputColor = document.getElementById('colorMode');
     const btnEraser = document.getElementById('eraserMode');
     const btnRainbow = document.getElementById('rainbowMode');
+    const btnClear = document.getElementById('clear');
+
+    
     // add grid css to the grid element
     gridContainer.style.gridTemplateColumns = "repeat(" + gridElements + ",1fr)";
     pixelHTML.classList.add('pixel');
@@ -24,6 +27,7 @@ const game = () => {
             // create a clone each time
             gridContainer.appendChild(pixelHTML.cloneNode(true));
         }
+        
     }
 
     const draw = () => {
@@ -32,20 +36,16 @@ const game = () => {
         const changePixelColor = (e) => {
             e.preventDefault();
             if (e.target.classList.contains('pixel')) {
-                if(currentMode === 'rainbowMode'){
-                    e.target.style.backgroundColor = 'rgb('+getRandomRGB()+')';
-                }else if(currentMode==='eraserMode'){
+                if (currentMode === 'rainbowMode') {
+                    e.target.style.backgroundColor = 'rgb(' + getRandomRGB() + ')';
+                } else if (currentMode === 'eraserMode') {
                     e.target.style.backgroundColor = '';
-                }else{
+                } else {
                     e.target.style.backgroundColor = currentColor;
                 }
-                
+
             }
-            // pixels.forEach(pixel => pixel.addEventListener('mouseover ', () => {
-            //     console.log('click');
-            //     console.log(this);
-            //     pixel.style.backgroundColor = "blue";
-            // }));
+
 
         }
         // execute on click
@@ -55,7 +55,7 @@ const game = () => {
             changePixelColor(e);
             // then continue calling the colorchange on mouse over
             gridContainer.addEventListener('mouseover', changePixelColor);
-console.log(currentMode);
+            console.log(currentMode);
         });
         // remove event on mouse up
         gridContainer.onmouseup = function (e) {
@@ -71,23 +71,29 @@ console.log(currentMode);
     }
 
     createGrid(gridElements);
+    const pixels = Array.from(document.querySelectorAll('#grid .pixel'));
     // update color choice via color picker input
-    inputColor.addEventListener('change', function (e) {
+    inputColor.addEventListener('change', (e) => {
         updateColor(e.target.value);
-        currentMode=modes[0];
+        currentMode = modes[0];
         console.log(currentMode);
     });
     //rainbow mode
-    btnEraser.addEventListener('click', function (e) {
-        updateColor('');
-        currentMode=modes[2];
+    btnEraser.addEventListener('click', () => {
+        currentMode = modes[2];
         console.log(currentMode);
-    });    
+    });
     //eraser mode
-    btnRainbow.addEventListener('click', function (e) {
-        updateColor('purple');
-        currentMode=modes[1];
+    btnRainbow.addEventListener('click', () => {
+        currentMode = modes[1];
         console.log(currentMode);
+    });
+    //clear mode
+    btnClear.addEventListener('click', () => {
+
+        console.log('clear');
+        console.log(pixels);
+        pixels.forEach(pixel => pixel.style.backgroundColor = "");
     });
     // getting random number between 2 values (useful for random RGB color)
     function getRandomIntInclusive(min, max) {
