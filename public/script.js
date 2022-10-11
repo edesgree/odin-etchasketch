@@ -17,7 +17,9 @@ const game = () => {
     const btnRainbow = document.getElementById('rainbowMode');
     const btnClear = document.getElementById('clear');
 
-
+    // display default grid size value in html
+    inputGridSizeValue.innerHTML = gridElements;
+    inputGridSize.value = gridElements;
 
     // grid creation function
     const createGrid = (gridSize) => {
