@@ -17,16 +17,19 @@
         <h1>Etch a sketch</h1>
     </header>
     
-    <main class="game">
+    <main class="game"> 
        <div class="settings">
-            <div>
-                <label for="colorMode">color</label>
+            <div class="color-choice">
+                <label for="colorMode" id="colorModeLabel" class="nav-btn tooltip "><span class="tooltiptext">Color mode</span></label>
                 <input type="color" id="colorMode" name="colorMode" value="#333">
             </div>
-            <button id="rainbowMode">rainbow mode</button>
-            <button id="eraserMode">eraser</button>
-            <button id="clear">clear</button>
-            <div>
+            <div class="other-choices">
+                <button class="nav-btn tooltip" id="rainbowMode"><span class="tooltiptext">rainbow mode</span></button>
+                <button class="nav-btn tooltip" id="eraserMode"><span class="tooltiptext">eraser</span></button>
+                <button class="nav-btn tooltip" id="clear"><span class="tooltiptext">clear</span></button>
+               
+            </div>
+           <div class="grid-choice">
                 <label for="grid_size">Grid size</label>
                 <span class="grid_size_value"></span>
                 <input type="range" id="grid_size" name="grid_size" min="2" max="64" >

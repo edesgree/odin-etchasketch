@@ -16,7 +16,7 @@ body {
 }
 
 main.game {
-  background: darkred;
+  background: #ca2f2f;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
   display: flex;
@@ -28,21 +28,58 @@ main.game .settings {
   flex-direction: column;
   gap: 10px;
 }
+main.game .settings .color-choice {
+  position: relative;
+}
 main.game .settings #colorMode {
   background-color: transparent;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   height: 50px;
-  width: 50px;
+  margin: 0;
+  padding: 0;
+  width: 46px;
 }
 main.game .settings #colorMode::-webkit-color-swatch {
   border: solid 2px white;
   border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
 }
 main.game .settings #colorMode::-moz-color-swatch {
+  border: solid 2px white;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+}
+main.game .settings .nav-btn {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
-  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+}
+main.game .settings .nav-btn.active {
+  border: solid 2px #ca2f2f;
+}
+main.game .settings .nav-btn#rainbowMode {
+  background-image: url("../images/rainbow.svg");
+}
+main.game .settings .nav-btn#eraserMode {
+  background-image: url("../images/eraser.svg");
+}
+main.game .settings .nav-btn#clear {
+  background-image: url("../images/clear.svg");
+}
+main.game .settings .nav-btn#colorModeLabel {
+  background-image: url("../images/pen.svg");
+  display: inline-block;
+}
+main.game .settings .other-choices {
+  margin-bottom: 20px;
+}
+main.game .settings .grid-choice #grid_size {
+  display: block;
 }
 main.game .grid {
   display: grid;
@@ -52,4 +89,28 @@ main.game .grid {
 main.game .grid .pixel {
   background-color: #ccc;
   border: solid 1px #b3b3b3;
+}
+
+.tooltip {
+  position: relative;
+  /* Show the tooltip text when you mouse over the tooltip container */
+}
+.tooltip .tooltiptext {
+  background-color: #084c61;
+  border-radius: 6px;
+  color: #fff;
+  font-family: "Kalam", cursive;
+  font-size: 12px;
+  left: -50%;
+  padding: 4px 8px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

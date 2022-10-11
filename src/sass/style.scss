@@ -5,17 +5,18 @@ $containerWidth: min(100% - 2rem, 60rem);
 $assetsPath: "../images/";
 $dark: #323031;
 $bright: #ffc857;
-$bright2: #db3a34;
+$bright2: #ca2f2f;
 $main: #084c61;
 $main2: #177e89;
-$grid:#ccc;
+$grid: #ccc;
+$font: "Kalam", cursive;
 body {
     align-items: center;
     background-color: $dark;
     color: $bright;
     display: flex;
     flex-direction: column;
-    font-family: "Kalam", cursive;
+    font-family: $font;
 }
 
 *,
@@ -24,46 +25,107 @@ body {
     box-sizing: border-box;
 }
 
-main.game{
-    background: darkred;
+main.game {
+    background: $bright2;
     border-radius: 20px;
-    box-shadow: rgba(0,0,0,0.2) 0px 0px 16px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
     display: flex;
     gap: 10px;
     padding: 20px;
 
-    .settings{
+    .settings {
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-        #colorMode{
+        .color-choice {
+            position: relative;
+        }
+        #colorMode {
             background-color: transparent;
-            border:none;
+            border: none;
             border-radius: 50px;
             cursor: pointer;
             height: 50px;
-            width: 50px;
-            &::-webkit-color-swatch
-             {
+            margin: 0;
+            padding: 0;
+            width: 46px;
+            &::-webkit-color-swatch {
                 border: solid 2px white;
-                border-radius:50px;
+                border-radius: 50px;
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
             }
-            
-            &::-moz-color-swatch
-             {
-                border:none;
-                border-radius:15px;
+
+            &::-moz-color-swatch {
+                border: solid 2px white;
+                border-radius: 50px;
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 16px;
+            }
+        }
+        .nav-btn {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: none;
+            height: 40px;
+            width: 40px;
+            &.active {
+                border: solid 2px $bright2;
+            }
+            &#rainbowMode {
+                background-image: url("#{$assetsPath}rainbow.svg");
+            }
+            &#eraserMode {
+                background-image: url("#{$assetsPath}eraser.svg");
+            }
+            &#clear {
+                background-image: url("#{$assetsPath}clear.svg");
+            }
+            &#colorModeLabel {
+                background-image: url("#{$assetsPath}pen.svg");
+                display: inline-block;
+            }
+        }
+        .other-choices{
+            margin-bottom: 20px;
+        }
+        .grid-choice{
+            #grid_size{
+                display: block;
             }
         }
     }
-    .grid{
+    .grid {
         display: grid;
         height: 500px;
         width: 500px;
-        .pixel{
+        .pixel {
             background-color: $grid;
-            border:solid 1px darken($grid,10%);
+            border: solid 1px darken($grid, 10%);
         }
+    }
+}
+
+.tooltip {
+    position: relative;
+    .tooltiptext {
+        background-color: $main;
+        border-radius: 6px;
+        color: #fff;
+        font-family: $font;
+        font-size: 12px;
+        left: -50%;
+        padding: 4px 8px;
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        text-align: center;
+        top: 100%;
+        visibility: hidden;
+        white-space: nowrap;
+        
+        z-index: 1;
+    }
+    /* Show the tooltip text when you mouse over the tooltip container */
+    &:hover .tooltiptext {
+        visibility: visible;
     }
 }
