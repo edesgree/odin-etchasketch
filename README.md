@@ -19,6 +19,7 @@ The project is to create a digital version of the game [Etch a Sketch](https://e
 * ESLint
 * HTML/Sass Boilerplate (npm)
 * Sass preprocessor
+* Figma
   
 ## Features
 * **Color mode:** Possibility to change the color of the pen
